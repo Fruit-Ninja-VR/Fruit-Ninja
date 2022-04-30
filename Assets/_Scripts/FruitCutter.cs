@@ -1,15 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent (typeof(Rigidbody))]
 public class FruitCutter : MonoBehaviour
-{
+{   
+    private int score = 0;
     public Material capMaterial;
+    public GameObject gameManagerObj;
+
+    private GameManager gameManager;
+    
+    void Start()
+    {
+        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = gameManagerObj.GetComponent<GameManager>();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         GameObject victim = collision.collider.gameObject;
+
+        switch (victim.tag)
+        {
+            case "Small":
+                gameManager.SetScore(50);
+                break;
+            case "Medium":
+                gameManager.SetScore(25);
+                break;
+            case "Large":
+                gameManager.SetScore(10);
+                break;
+        }
 
         GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
 
