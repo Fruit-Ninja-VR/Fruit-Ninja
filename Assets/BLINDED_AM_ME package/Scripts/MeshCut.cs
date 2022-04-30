@@ -168,6 +168,7 @@ namespace BLINDED_AM_ME{
 			GameObject rightSideObj = new GameObject("right side", typeof(MeshFilter), typeof(MeshRenderer));
 			rightSideObj.transform.position = victim.transform.position;
 			rightSideObj.transform.rotation = victim.transform.rotation;
+            rightSideObj.transform.localScale = victim.transform.localScale;
 			rightSideObj.GetComponent<MeshFilter>().mesh = right_HalfMesh;
 		
 			if(victim.transform.parent != null){
