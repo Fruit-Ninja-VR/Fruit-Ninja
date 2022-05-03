@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void Bombed()
     {
+        
         // Decrease 1 life on each bomb hit
         this.lives--;
         Debug.Log("Lives left: "+this.lives);

@@ -62,6 +62,10 @@ public class FruitCutter : MonoBehaviour
             } else if(this.tag == "Right") {
                 xrRight.SendHapticImpulse(0.5f, 0.5f);
             }
+        }else if(victim.tag == "Bomb"){
+
+            var bomb = victim.GetComponent<BombController>();
+            bomb.explode();
         }
     }
 }
