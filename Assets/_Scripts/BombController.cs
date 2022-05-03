@@ -11,7 +11,8 @@ public class BombController : MonoBehaviour
     public void explode(){
         if(triggered == false)
         {
-            explosion.Emit(1);
+            //explosion.Emit(1);
+            explosion.Play();
             triggered = true;
         }    
     }

@@ -42,7 +42,9 @@ public class FruitCutter : MonoBehaviour
             case "Bomb":
                 xrLeft.SendHapticImpulse(1f, 0.8f);
                 xrRight.SendHapticImpulse(1f, 0.8f);
+                victim.GetComponent<Rigidbody>().isKinematic = true;
                 gameManager.Bombed();
+                Destroy(victim, 0.3f);
                 break;
         }
 
