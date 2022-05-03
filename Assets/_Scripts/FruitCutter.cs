@@ -28,44 +28,55 @@ public class FruitCutter : MonoBehaviour
     {
         GameObject victim = collision.collider.gameObject;
 
-        switch (victim.tag)
-        {
-            case "Small":
-                gameManager.SetScore(50);
-                break;
-            case "Medium":
-                gameManager.SetScore(25);
-                break;
-            case "Large":
-                gameManager.SetScore(10);
-                break;
-            case "Bomb":
-                xrLeft.SendHapticImpulse(1f, 0.8f);
-                xrRight.SendHapticImpulse(1f, 0.8f);
-                victim.GetComponent<Rigidbody>().isKinematic = true;
-                gameManager.Bombed();
-                Destroy(victim, 0.3f);
-                break;
-        }
+        if(victim.name != "left side" || victim.name != "right side") {
+            Fruit fruit = victim.GetComponent<Fruit>();
+            if(fruit.WasHit() == false) {
+                fruit.GotHit(true);
+                switch (victim.tag)
+                {
+                    case "Small":
+                        gameManager.SetScore(50);
+                        break;
+                    case "Medium":
+                        gameManager.SetScore(25);
+                        break;
+                    case "Large":
+                        gameManager.SetScore(10);
+                        break;
+                    case "Bomb":
+                        xrLeft.SendHapticImpulse(1f, 0.8f);
+                        xrRight.SendHapticImpulse(1f, 0.8f);
+                        victim.GetComponent<Rigidbody>().isKinematic = true;
+                        gameManager.Bombed();
+                        Destroy(victim, 0.3f);
+                        break;
+                }
 
-        if(victim.tag != "Bomb") {
-            GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
-
-            if(!pieces[1].GetComponent<Rigidbody>())
-            {
-                pieces[1].AddComponent<Rigidbody>();
-                pieces[1].AddComponent<Fruit>();
-                MeshCollider temp = pieces[1].AddComponent<MeshCollider>();
-                temp.convex = true;
+                if(this.tag == "Left") {
+                    xrLeft.SendHapticImpulse(0.5f, 0.5f);
+                } else if(this.tag == "Right") {
+                    xrRight.SendHapticImpulse(0.5f, 0.5f);
+                }
             }
-            
-            if(this.tag == "Left") {
-                xrLeft.SendHapticImpulse(0.5f, 0.5f);
-            } else if(this.tag == "Right") {
-                xrRight.SendHapticImpulse(0.5f, 0.5f);
-            }
-        }else if(victim.tag == "Bomb"){
 
+            if(victim.tag != "Bomb") {
+                GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
+
+                if(!pieces[1].GetComponent<Rigidbody>())
+                {
+                    pieces[1].AddComponent<Rigidbody>();
+                    pieces[1].AddComponent<Fruit>();
+                    MeshCollider temp = pieces[1].AddComponent<MeshCollider>();
+                    temp.convex = true;
+                }
+                    
+                if(this.tag == "Left") {
+                    xrLeft.SendHapticImpulse(0.3f, 0.2f);
+                } else if(this.tag == "Right") {
+                    xrRight.SendHapticImpulse(0.3f, 0.2f);
+                }
+            }
+        } else if(victim.tag == "Bomb") {
             var bomb = victim.GetComponent<BombController>();
             bomb.explode();
         }
