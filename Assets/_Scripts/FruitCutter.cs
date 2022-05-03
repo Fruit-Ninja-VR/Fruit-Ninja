@@ -30,7 +30,9 @@ public class FruitCutter : MonoBehaviour
 
         if(victim.name != "left side" || victim.name != "right side") {
             Fruit fruit = victim.GetComponent<Fruit>();
+            // Check if this fruit or bomb was already hit
             if(fruit.WasHit() == false) {
+                // If it wasn't hit before, now it is
                 fruit.GotHit(true);
                 switch (victim.tag)
                 {
@@ -44,14 +46,21 @@ public class FruitCutter : MonoBehaviour
                         gameManager.SetScore(10);
                         break;
                     case "Bomb":
+                        // Vibrate both controllers for explosion
                         xrLeft.SendHapticImpulse(1f, 0.8f);
                         xrRight.SendHapticImpulse(1f, 0.8f);
+                        // Freeze bomb
                         victim.GetComponent<Rigidbody>().isKinematic = true;
+                        // Explode bomb
+                        victim.GetComponent<BombController>().explode();
+                        // Lose Life
                         gameManager.Bombed();
+                        // Destroy bomb after 0.3 seconds
                         Destroy(victim, 0.3f);
                         break;
                 }
 
+                // Vibrate a controller when it hits a fruit
                 if(this.tag == "Left") {
                     xrLeft.SendHapticImpulse(0.5f, 0.5f);
                 } else if(this.tag == "Right") {
@@ -60,6 +69,7 @@ public class FruitCutter : MonoBehaviour
             }
 
             if(victim.tag != "Bomb") {
+                // Cut fruit
                 GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
 
                 if(!pieces[1].GetComponent<Rigidbody>())
@@ -69,16 +79,14 @@ public class FruitCutter : MonoBehaviour
                     MeshCollider temp = pieces[1].AddComponent<MeshCollider>();
                     temp.convex = true;
                 }
-                    
+                
+                // When hitting the same fruit multiple times, add a minor vibration
                 if(this.tag == "Left") {
                     xrLeft.SendHapticImpulse(0.3f, 0.2f);
                 } else if(this.tag == "Right") {
                     xrRight.SendHapticImpulse(0.3f, 0.2f);
                 }
             }
-        } else if(victim.tag == "Bomb") {
-            var bomb = victim.GetComponent<BombController>();
-            bomb.explode();
         }
     }
 }
