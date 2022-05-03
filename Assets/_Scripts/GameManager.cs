@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public Text scoreText;
     private int score = 0;
+    private int lives = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -24,5 +25,13 @@ public class GameManager : MonoBehaviour
     {
         this.score += score;
         scoreText.text = this.score.ToString();
+    }
+
+    public void Bombed()
+    {
+        // Decrease 1 life on each bomb hit
+        this.lives--;
+        Debug.Log("Lives left: "+this.lives);
+        
     }
 }

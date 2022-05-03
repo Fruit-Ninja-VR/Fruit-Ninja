@@ -6,7 +6,6 @@ using UnityEngine.UI;
 [RequireComponent (typeof(Rigidbody))]
 public class FruitCutter : MonoBehaviour
 {   
-    private int score = 0;
     public Material capMaterial;
     public GameObject gameManagerObj;
 
@@ -33,6 +32,11 @@ public class FruitCutter : MonoBehaviour
             case "Large":
                 gameManager.SetScore(10);
                 break;
+            case "Bomb":
+                gameManager.Bombed();
+                break;
+
+
         }
 
         GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
