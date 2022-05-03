@@ -318,6 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109434732395451517}
   - component: {fileID: 109434732388006827}
+  - component: {fileID: 5696397699623418443}
   m_Layer: 0
   m_Name: Left Hand Model
   m_TagString: Untagged
@@ -351,7 +352,7 @@ Animator:
   m_GameObject: {fileID: 109434732395284509}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ca20b3907ff1c794cb89c1ad2cce8282, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 676920234c8709b4cb301fb4f99d5873, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -360,6 +361,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5696397699623418443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109434732395284509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c6ad943ed33894d8c5382c0018b138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &109434732395284511
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +419,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

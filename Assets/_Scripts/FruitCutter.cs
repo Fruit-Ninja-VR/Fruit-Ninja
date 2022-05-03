@@ -19,7 +19,7 @@ public class FruitCutter : MonoBehaviour
     
     void Start()
     {
-        gameManager = gameManagerObj.GetComponent<GameManager>();
+        //gameManager = gameManagerObj.GetComponent<GameManager>();
         xrLeft = leftHand.GetComponent<ActionBasedController>();
         xrRight = rightHand.GetComponent<ActionBasedController>();
     }
