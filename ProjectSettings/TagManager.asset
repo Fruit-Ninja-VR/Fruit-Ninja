@@ -9,6 +9,7 @@ TagManager:
   - Large
   - Left
   - Right
+  - Bomb
   layers:
   - Default
   - TransparentFX

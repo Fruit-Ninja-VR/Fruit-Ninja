@@ -40,26 +40,28 @@ public class FruitCutter : MonoBehaviour
                 gameManager.SetScore(10);
                 break;
             case "Bomb":
+                xrLeft.SendHapticImpulse(1f, 0.8f);
+                xrRight.SendHapticImpulse(1f, 0.8f);
                 gameManager.Bombed();
                 break;
-
-
         }
 
-        GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
+        if(victim.tag != "Bomb") {
+            GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
 
-        if(!pieces[1].GetComponent<Rigidbody>())
-        {
-            pieces[1].AddComponent<Rigidbody>();
-            pieces[1].AddComponent<Fruit>();
-            MeshCollider temp = pieces[1].AddComponent<MeshCollider>();
-            temp.convex = true;
-        }
-        
-        if(this.tag == "Left") {
-           xrLeft.SendHapticImpulse(0.5f, 0.5f);
-        } else if(this.tag == "Right") {
-           xrRight.SendHapticImpulse(0.5f, 0.5f);
+            if(!pieces[1].GetComponent<Rigidbody>())
+            {
+                pieces[1].AddComponent<Rigidbody>();
+                pieces[1].AddComponent<Fruit>();
+                MeshCollider temp = pieces[1].AddComponent<MeshCollider>();
+                temp.convex = true;
+            }
+            
+            if(this.tag == "Left") {
+                xrLeft.SendHapticImpulse(0.5f, 0.5f);
+            } else if(this.tag == "Right") {
+                xrRight.SendHapticImpulse(0.5f, 0.5f);
+            }
         }
     }
 }

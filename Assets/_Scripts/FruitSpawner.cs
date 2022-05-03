@@ -19,8 +19,13 @@ public class FruitSpawner : MonoBehaviour
             GameObject go = Instantiate(fruit[Random.Range(0, fruit.Length)]);
             Rigidbody temp = go.GetComponent<Rigidbody>();
 
-            temp.velocity = new Vector3(0f, 9f, 10f);
-            temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
+            if(temp.tag == "Bomb") {
+                temp.velocity = new Vector3(0f, 7f, 7f);
+                temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
+            } else {
+                temp.velocity = new Vector3(0f, 9f, 11f);
+                temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
+            }
             temp.useGravity = true;
 
             Vector3 pos = transform.position;
