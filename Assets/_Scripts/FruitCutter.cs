@@ -2,20 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent (typeof(Rigidbody))]
 public class FruitCutter : MonoBehaviour
 {   
-    private int score = 0;
     public Material capMaterial;
     public GameObject gameManagerObj;
+    public GameObject leftHand;
+    public GameObject rightHand;
 
     private GameManager gameManager;
+    private ActionBasedController xrLeft;
+    private ActionBasedController xrRight;
     
     void Start()
     {
-        //gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         gameManager = gameManagerObj.GetComponent<GameManager>();
+        xrLeft = leftHand.GetComponent<ActionBasedController>();
+        xrRight = rightHand.GetComponent<ActionBasedController>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -44,7 +50,11 @@ public class FruitCutter : MonoBehaviour
             MeshCollider temp = pieces[1].AddComponent<MeshCollider>();
             temp.convex = true;
         }
-            
-        //Destroy(pieces[1], 1);
+        
+        if(this.tag == "Left") {
+           xrLeft.SendHapticImpulse(0.5f, 0.5f);
+        } else if(this.tag == "Right") {
+           xrRight.SendHapticImpulse(0.5f, 0.5f);
+        }
     }
 }
