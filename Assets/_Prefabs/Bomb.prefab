@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2370028}
   - component: {fileID: -6435331381502077885}
   - component: {fileID: -321488688754442721}
+  - component: {fileID: 7516874949105677301}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Bomb
@@ -113,3 +114,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: d1e8477c1d62b4eb2950689921e7ef58, type: 3}
+--- !u!114 &7516874949105677301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4a89283e275044cb102c76935e6455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
