@@ -7,6 +7,8 @@ TagManager:
   - Small
   - Medium
   - Large
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX
