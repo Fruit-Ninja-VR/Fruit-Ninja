@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Sets the game over menu to false once the game starts
-       gameOver.SetActive(false);
+       gameOver.SetActive(true);
     }
 
     // Update is called once per frame
