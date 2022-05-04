@@ -9749,7 +9749,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 927342989}
-  explosion: {fileID: 0}
   hearts:
   - {fileID: 449890691}
   - {fileID: 1388493360}
