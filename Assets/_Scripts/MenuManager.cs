@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class MenuManager : MonoBehaviour
 {
+    public Material capMaterial;
+    public GameObject gameManagerObj;
+    public GameObject leftHand;
+    public GameObject rightHand;
+
+    private ActionBasedController xrLeft;
+    private ActionBasedController xrRight;
+
     void Start()
     {
         xrLeft = leftHand.GetComponent<ActionBasedController>();
@@ -14,7 +23,7 @@ public class MenuManager : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        GameObject victim = collision.collider.gameObject;
+        GameObject victim = col.collider.gameObject;
 
         if(victim.name != "left side" || victim.name != "right side") {
             Fruit fruit = victim.GetComponent<Fruit>();
@@ -26,6 +35,7 @@ public class MenuManager : MonoBehaviour
             if(victim.tag == "Large")
             {
                 // load new scene once watermelon is sliced
+                //SceneManager.LoadScene("MainScene");
             }
         }
     }
