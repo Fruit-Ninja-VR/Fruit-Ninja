@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class LogoRotator : MonoBehaviour
 {
-    [SerializeField] private Vector3 _rotation;
-    [SerializeField] private float speed = 5f;
-
-    private Vector3 randomRotation;
-
-
     void Start()
     {
         GetComponent<Rigidbody>().angularVelocity = new Vector3(0f, 2f, 0f);
     }
-
 
     // Update is called once per frame
     void Update()
