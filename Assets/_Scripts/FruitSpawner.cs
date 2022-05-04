@@ -6,6 +6,9 @@ public class FruitSpawner : MonoBehaviour
 {
     public GameObject[] fruit;
     public GameObject[] spawners;
+    public GameManager gameManager;
+
+    private bool isDead = false;    
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +18,7 @@ public class FruitSpawner : MonoBehaviour
 
     IEnumerator SpawnFruit()
     {
-        while(true) 
+        while(gameManager.GetLives() > 0) 
         {
             // Get the amount of fruit to be spawned
             int rand = Random.Range(0, spawners.Length / 2);

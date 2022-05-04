@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     {
         // Sets the game over menu to false once the game starts
        gameOver.SetActive(false);
-       //Time.timeScale = 1f;   
     }
 
     // Update is called once per frame
@@ -48,7 +47,11 @@ public class GameManager : MonoBehaviour
         if(this.lives <=0)
         {
             gameOver.SetActive(true);
-            //Time.timeScale = 0f;
         }
+    }
+
+    public int GetLives()
+    {
+        return this.lives;
     }
 }
