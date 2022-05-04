@@ -916,16 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c6ad943ed33894d8c5382c0018b138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHand: {fileID: 5686134208185362930}
-  selectValue:
-    m_Name: Select Value
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 6d2146f1-1ee8-406e-a3a7-eb16ab3ea0a6
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+  selectValue: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  activateValue: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &5686134208185362932
 GameObject:
   m_ObjectHideFlags: 0
