@@ -56,7 +56,8 @@ public class FruitCutter : MonoBehaviour
                         victim.GetComponent<BombController>().explode();
                         // Lose Life
                         gameManager.Bombed();
-                        // Destroy bomb after 0.3 seconds
+                        // Destroy bomb after 0.1 seconds to allow animation
+                        // to play
                         Destroy(victim, 0.1f);
                         break;
                     case "Restart":
@@ -79,8 +80,10 @@ public class FruitCutter : MonoBehaviour
                 // Cut fruit
                 GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
 
+                // If the new piece created after slicing has no rigidbody
                 if(!pieces[1].GetComponent<Rigidbody>())
                 {
+                    // Add one and also the fruit script
                     pieces[1].AddComponent<Rigidbody>();
                     pieces[1].AddComponent<Fruit>();
                     MeshCollider temp = pieces[1].AddComponent<MeshCollider>();
@@ -100,14 +103,14 @@ public class FruitCutter : MonoBehaviour
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(0.5f);
-        // load new scene once watermelon is sliced
+        // Load same scene once watermelon is sliced
         SceneManager.LoadScene("MainScene");
     }
 
     IEnumerator ExitGame()
     {
         yield return new WaitForSeconds(0.5f);
-        // load new scene once watermelon is sliced
+        // Load main menu once banana is sliced
         SceneManager.LoadScene("MainMenu");
     }
 }

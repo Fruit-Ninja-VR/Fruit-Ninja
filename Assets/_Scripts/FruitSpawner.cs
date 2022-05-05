@@ -18,20 +18,23 @@ public class FruitSpawner : MonoBehaviour
 
     IEnumerator SpawnFruit()
     {
+        // While the player has lives, spawn fruit
         while(gameManager.GetLives() > 0) 
         {
             // Get the amount of fruit to be spawned
-            int rand = Random.Range(0, spawners.Length / 2);
+            int rand = Random.Range(0, (spawners.Length / 2) + 2);
 
             for(int i = 0; i < rand; i++) {
+                // Instantiate a fruit
                 GameObject go = Instantiate(fruit[Random.Range(0, fruit.Length)]);
                 Rigidbody temp = go.GetComponent<Rigidbody>();
 
                 if(temp.tag == "Bomb") {
-                    temp.velocity = new Vector3(0f, 8f, 7f);
+                    temp.velocity = new Vector3(0f, 7f, 7f);
                 } else {
-                    temp.velocity = new Vector3(0f, Random.Range(9, 11), 11f);
+                    temp.velocity = new Vector3(0f, Random.Range(8, 10), 11f);
                 }
+                // Add a random rotation to the fruit
                 temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
                 temp.useGravity = true;
 

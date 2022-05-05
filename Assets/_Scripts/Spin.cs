@@ -9,10 +9,4 @@ public class Spin : MonoBehaviour
     {
         GetComponent<Rigidbody>().angularVelocity = new Vector3(0f, 2f, 0f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
