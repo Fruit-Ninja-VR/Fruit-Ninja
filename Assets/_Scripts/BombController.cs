@@ -8,6 +8,7 @@ public class BombController : MonoBehaviour
     [SerializeField]
     private ParticleSystem explosion;
     
+    // Function which will trigger bomb explosion
     public void explode(){
         if(triggered == false)
         {

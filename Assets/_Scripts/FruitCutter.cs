@@ -77,7 +77,7 @@ public class FruitCutter : MonoBehaviour
             }
 
             if(victim.tag != "Bomb") {
-                // Cut fruit
+                // Cut fruit using MeshCut
                 GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
 
                 // If the new piece created after slicing has no rigidbody

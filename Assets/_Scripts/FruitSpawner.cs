@@ -42,7 +42,6 @@ public class FruitSpawner : MonoBehaviour
                 pos.x += Random.Range(-1f, 1f);
                 go.transform.position = pos;
             }
-
             yield return new WaitForSeconds(1f);    
         }
     }
