@@ -8,6 +8,12 @@
 
 ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white) ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white) ![Oculus](https://a11ybadges.com/badge?logo=oculus)
 
+## Requiremets
+
+* **Oculus Quest** or alternative
+* **Unity 2020.29.2f** (optional)
+* **Git**
+
 ## How to Run
 
 1. Clone the repository `https://github.com/Fruit-Ninja-VR/Fruit-Ninja.git`
