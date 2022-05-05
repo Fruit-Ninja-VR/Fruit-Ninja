@@ -1,10 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BombController
     - Fruit
     - FruitCutter
     - FruitSpawner
     - GameManager
+    - HandsController
+    - MenuManager
+    - Spin
     - XftWeapon.XWeaponTrail
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
@@ -28,6 +32,8 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.Interaction.Toolkit.ActionBasedController
     - UnityEngine.XR.Interaction.Toolkit.Inputs.InputActionManager
     - UnityEngine.XR.Interaction.Toolkit.InteractionLayerSettings
+    - UnityEngine.XR.Interaction.Toolkit.XRDirectInteractor
+    - UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable
     - UnityEngine.XR.Interaction.Toolkit.XRInteractionManager
     - UnityEngine.XR.Interaction.Toolkit.XRInteractorLineVisual
     - UnityEngine.XR.Interaction.Toolkit.XRRayInteractor
@@ -59,6 +65,12 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.OpenXR.Features.Interactions.ValveIndexControllerProfile
     - UnityEngine.XR.OpenXR.OpenXRLoader
     - UnityEngine.XR.OpenXR.OpenXRSettings
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -68,9 +80,10 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/_Scenes/MainScene.unity:
+    Assets/_Scenes/MainMenu.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -97,7 +110,116 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 516}
+    - Class: 114
+      Script: {instanceID: 1728}
+    - Class: 114
+      Script: {instanceID: 2058}
+    - Class: 114
+      Script: {instanceID: 2080}
+    - Class: 114
+      Script: {instanceID: 2508}
+    - Class: 114
+      Script: {instanceID: 2810}
+    - Class: 114
+      Script: {instanceID: 4038}
+    - Class: 114
+      Script: {instanceID: 4190}
+    - Class: 114
+      Script: {instanceID: 4330}
+    - Class: 114
+      Script: {instanceID: 4488}
+    - Class: 114
+      Script: {instanceID: 4734}
+    - Class: 114
+      Script: {instanceID: 4736}
+    - Class: 114
+      Script: {instanceID: 4808}
+    - Class: 114
+      Script: {instanceID: 4830}
+    - Class: 114
+      Script: {instanceID: 4954}
+    - Class: 114
+      Script: {instanceID: 5036}
+    - Class: 114
+      Script: {instanceID: 5342}
+    - Class: 114
+      Script: {instanceID: 5558}
+    - Class: 114
+      Script: {instanceID: 5734}
+    - Class: 114
+      Script: {instanceID: 6182}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 120
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
+    Assets/_Scenes/MainScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -106,53 +228,49 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 490}
+      Script: {instanceID: 516}
     - Class: 114
-      Script: {instanceID: 1702}
+      Script: {instanceID: 1686}
     - Class: 114
-      Script: {instanceID: 2032}
+      Script: {instanceID: 1728}
     - Class: 114
-      Script: {instanceID: 2054}
+      Script: {instanceID: 2080}
     - Class: 114
-      Script: {instanceID: 2434}
+      Script: {instanceID: 2460}
     - Class: 114
-      Script: {instanceID: 2482}
+      Script: {instanceID: 2516}
     - Class: 114
-      Script: {instanceID: 2490}
+      Script: {instanceID: 2810}
     - Class: 114
-      Script: {instanceID: 2784}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 2942}
+      Script: {instanceID: 3134}
     - Class: 114
-      Script: {instanceID: 3108}
+      Script: {instanceID: 3376}
     - Class: 114
-      Script: {instanceID: 3350}
+      Script: {instanceID: 3570}
     - Class: 114
-      Script: {instanceID: 3544}
+      Script: {instanceID: 3662}
     - Class: 114
-      Script: {instanceID: 3636}
+      Script: {instanceID: 4088}
     - Class: 114
-      Script: {instanceID: 4160}
+      Script: {instanceID: 4190}
     - Class: 114
-      Script: {instanceID: 4182}
+      Script: {instanceID: 4212}
     - Class: 114
-      Script: {instanceID: 4704}
+      Script: {instanceID: 4736}
     - Class: 114
-      Script: {instanceID: 4706}
+      Script: {instanceID: 4792}
     - Class: 114
-      Script: {instanceID: 4796}
+      Script: {instanceID: 4808}
     - Class: 114
-      Script: {instanceID: 4920}
+      Script: {instanceID: 4830}
     - Class: 114
-      Script: {instanceID: 5002}
+      Script: {instanceID: 4954}
     - Class: 114
-      Script: {instanceID: 5308}
+      Script: {instanceID: 5036}
     - Class: 114
-      Script: {instanceID: 5524}
-    - Class: 114
-      Script: {instanceID: 5700}
-    - Class: 114
-      Script: {instanceID: 35576}
+      Script: {instanceID: 5558}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -162,6 +280,12 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -372,7 +496,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 7de62008771222fd506c98b8694a8cac
+      Hash: 5fc908876bf56ebae8459f4dd9bdcbc3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FruitCutter
@@ -714,6 +838,12 @@ ScriptsOnlyBuild:
     className: DeviceBasedContinuousTurnProvider
   - hash:
       serializedVersion: 2
+      Hash: e560886d7bd929eb2a97f23508c659e3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuManager
+  - hash:
+      serializedVersion: 2
       Hash: d3f29ba27f28c1f558880c4df5545ed3
     assemblyName: Unity.InputSystem.dll
     namespaceName: 
@@ -730,6 +860,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.Interaction.Toolkit.dll
     namespaceName: UnityEngine.XR.Interaction.Toolkit
     className: XRInteractorReticleVisual
+  - hash:
+      serializedVersion: 2
+      Hash: aeda1bb7c2748d4cedd3b8a51b2afae7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -774,7 +910,7 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: e858442d11fb8809a6ce10fbc3683827
+      Hash: a37508a96383631473d72b789cd68ebb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FruitSpawner
@@ -946,6 +1082,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: BLINDED_AM_ME._ApplicationComponents
     className: ApplicationComponent_Manager
+  - hash:
+      serializedVersion: 2
+      Hash: 3b8038c3392a12b7521cc1a169adf79c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BombController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Spin
   - hash:
       serializedVersion: 2
       Hash: 4efe5f564d36c37295fd0e7407c4ad9a
@@ -1218,6 +1366,12 @@ ScriptsOnlyBuild:
     className: PlayerInputManager
   - hash:
       serializedVersion: 2
+      Hash: 75e14f149c860dbbd2adce9c536c2bcc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HandsController
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1246,13 +1400,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.Interaction.Toolkit.dll
     namespaceName: UnityEngine.XR.Interaction.Toolkit.UI
     className: XRUIInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: fd603770689195d8c21e05ad28422d62
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameManager
   platform: 13
   scenePathNames:
+  - Assets/_Scenes/MainMenu.unity
   - Assets/_Scenes/MainScene.unity
-  playerPath: C:/College/FruitNinja/fruitninja.apk
+  playerPath: C:/College/FruitNinja/fruitslicer.apk
