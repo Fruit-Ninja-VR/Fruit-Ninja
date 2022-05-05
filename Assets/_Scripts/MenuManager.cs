@@ -4,25 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
     public Material capMaterial;
-    public GameObject gameManagerObj;
-    public GameObject leftHand;
     public GameObject rightHand;
-
-    private ActionBasedController xrLeft;
     private ActionBasedController xrRight;
 
     void Start()
     {
-        xrLeft = leftHand.GetComponent<ActionBasedController>();
         xrRight = rightHand.GetComponent<ActionBasedController>();    
     }
 
     void OnCollisionEnter(Collision col)
     {
+        Debug.Log("Collision");
         GameObject victim = col.collider.gameObject;
 
         if(victim.name != "left side" || victim.name != "right side") {
@@ -31,12 +28,47 @@ public class MenuManager : MonoBehaviour
             if(fruit.WasHit() == false) {
                 // If it wasn't hit before, now it is
                 fruit.GotHit(true);
+                xrRight.SendHapticImpulse(0.5f, 0.5f);
+                switch(victim.tag)
+                {
+                    case "Start":
+                        StartCoroutine(StartGame());
+                        break;
+                    case "Restart":
+                        StartCoroutine(StartGame());
+                        break;
+                    case "Exit":
+                        StartCoroutine(ExitGame());
+                        break;
+                }
             }
-            if(victim.tag == "Large")
-            {
-                // load new scene once watermelon is sliced
-                //SceneManager.LoadScene("MainScene");
-            }
+        } else {
+            // When hitting the same fruit multiple times, add a minor vibration
+            xrRight.SendHapticImpulse(0.3f, 0.2f);
         }
+
+        GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, transform.position, transform.right, capMaterial);
+
+        if(!pieces[1].GetComponent<Rigidbody>())
+        {
+            pieces[1].AddComponent<Rigidbody>();
+            pieces[1].AddComponent<Fruit>();
+            MeshCollider temp = pieces[1].AddComponent<MeshCollider>();
+            temp.convex = true;
+        }
+    }
+
+    IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+        // load new scene once watermelon is sliced
+        SceneManager.LoadScene("MainScene");
+    }
+
+    IEnumerator ExitGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+        // load new scene once watermelon is sliced
+        SceneManager.LoadScene("MainMenu");
     }
 }

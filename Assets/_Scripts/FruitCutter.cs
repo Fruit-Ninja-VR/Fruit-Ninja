@@ -22,10 +22,12 @@ public class FruitCutter : MonoBehaviour
         //gameManager = gameManagerObj.GetComponent<GameManager>();
         xrLeft = leftHand.GetComponent<ActionBasedController>();
         xrRight = rightHand.GetComponent<ActionBasedController>();
+        Debug.Log("Get controller");
     }
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collision");
         GameObject victim = collision.collider.gameObject;
 
         if(victim.name != "left side" || victim.name != "right side") {

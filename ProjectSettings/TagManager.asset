@@ -10,6 +10,8 @@ TagManager:
   - Left
   - Right
   - Bomb
+  - Start
+  - Restart
   layers:
   - Default
   - TransparentFX
