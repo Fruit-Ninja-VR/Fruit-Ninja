@@ -56,9 +56,9 @@ public class FruitCutter : MonoBehaviour
                         victim.GetComponent<BombController>().explode();
                         // Lose Life
                         gameManager.Bombed();
-                        // Destroy bomb after 0.1 seconds to allow animation
+                        // Destroy bomb after 0.2 seconds to allow animation
                         // to play
-                        Destroy(victim, 0.1f);
+                        Destroy(victim, 0.2f);
                         break;
                     case "Restart":
                         StartCoroutine(RestartGame());
