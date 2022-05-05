@@ -17,7 +17,7 @@
 ## How to Run
 
 1. Clone the repository `https://github.com/Fruit-Ninja-VR/Fruit-Ninja.git`
-2. Add the Project to **Unity**
+2. Add the Project to **Unity** - to find out more about how to add project to unity click *[here](https://support.unity.com/hc/en-us/articles/4402520287124-How-do-I-add-a-project-saved-on-my-computer-into-the-Unity-Hub-)*
 3. Connect **Oculus Quest**
 4. Press *Play* and enjoy the game
 
