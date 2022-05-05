@@ -6,6 +6,9 @@ public class FruitSpawner : MonoBehaviour
 {
     public GameObject[] fruit;
     public GameObject[] spawners;
+    public GameManager gameManager;
+
+    private bool isDead = false;    
 
     // Start is called before the first frame update
     void Start()
@@ -14,8 +17,8 @@ public class FruitSpawner : MonoBehaviour
     }
 
     IEnumerator SpawnFruit()
-    {
-        while(true) 
+    {//gameManager.GetLives() > 0
+        while(false) 
         {
             // Get the amount of fruit to be spawned
             int rand = Random.Range(0, spawners.Length / 2);
@@ -25,12 +28,11 @@ public class FruitSpawner : MonoBehaviour
                 Rigidbody temp = go.GetComponent<Rigidbody>();
 
                 if(temp.tag == "Bomb") {
-                    temp.velocity = new Vector3(0f, 7f, 7f);
-                    temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
+                    temp.velocity = new Vector3(0f, 6f, 7f);
                 } else {
-                    temp.velocity = new Vector3(0f, 9f, 11f);
-                    temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
+                    temp.velocity = new Vector3(0f, 8f, 11f);
                 }
+                temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
                 temp.useGravity = true;
 
                 Vector3 pos = transform.position;

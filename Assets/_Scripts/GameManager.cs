@@ -8,13 +8,16 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public GameObject[] hearts;
 
+    [SerializeField]
+    public GameObject gameOver;
+
     private int score = 0;
     private int lives = 3;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        // Sets the game over menu to false once the game starts
+       gameOver.SetActive(true);
     }
 
     // Update is called once per frame
@@ -37,9 +40,18 @@ public class GameManager : MonoBehaviour
 
     public void Bombed()
     {
-        
         // Decrease 1 life on each bomb hit
         this.lives--;
         Debug.Log("Lives left: " + this.lives);
+
+        if(this.lives <=0)
+        {
+            gameOver.SetActive(true);
+        }
+    }
+
+    public int GetLives()
+    {
+        return this.lives;
     }
 }
