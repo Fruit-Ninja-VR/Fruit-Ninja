@@ -12,6 +12,7 @@ TagManager:
   - Bomb
   - Start
   - Restart
+  - Exit
   layers:
   - Default
   - TransparentFX

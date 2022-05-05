@@ -9,7 +9,6 @@ public class BombController : MonoBehaviour
     private ParticleSystem explosion;
     
     public void explode(){
-        Debug.Log("Explode");
         if(triggered == false)
         {
             //explosion.Emit(1);

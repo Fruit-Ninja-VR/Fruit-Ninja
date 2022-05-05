@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 777786569548212687}
   - component: {fileID: 1437353616750948779}
   - component: {fileID: 6052550028803909045}
-  - component: {fileID: -1333331484322019755}
+  - component: {fileID: 2770521411894756542}
   m_Layer: 0
   m_Name: Watermelon
   m_TagString: Large
@@ -114,7 +114,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300010, guid: 7141bb4678d3cc84b97c3f02eababb5f, type: 3}
---- !u!114 &-1333331484322019755
+--- !u!114 &2770521411894756542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

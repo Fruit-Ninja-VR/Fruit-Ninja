@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Sets the game over menu to false once the game starts
-       gameOver.SetActive(true);
+       gameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
     {
         // Decrease 1 life on each bomb hit
         this.lives--;
-        Debug.Log("Lives left: " + this.lives);
 
         if(this.lives <=0)
         {

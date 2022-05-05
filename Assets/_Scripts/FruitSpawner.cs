@@ -17,8 +17,8 @@ public class FruitSpawner : MonoBehaviour
     }
 
     IEnumerator SpawnFruit()
-    {//gameManager.GetLives() > 0
-        while(false) 
+    {
+        while(gameManager.GetLives() > 0) 
         {
             // Get the amount of fruit to be spawned
             int rand = Random.Range(0, spawners.Length / 2);
@@ -28,9 +28,9 @@ public class FruitSpawner : MonoBehaviour
                 Rigidbody temp = go.GetComponent<Rigidbody>();
 
                 if(temp.tag == "Bomb") {
-                    temp.velocity = new Vector3(0f, 6f, 7f);
+                    temp.velocity = new Vector3(0f, 8f, 7f);
                 } else {
-                    temp.velocity = new Vector3(0f, 8f, 11f);
+                    temp.velocity = new Vector3(0f, Random.Range(9, 11), 11f);
                 }
                 temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
                 temp.useGravity = true;
@@ -43,28 +43,4 @@ public class FruitSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f);    
         }
     }
-
-    /*IEnumerator SpawnFruit()
-    {
-        while(true) 
-        {
-            GameObject go = Instantiate(fruit[Random.Range(0, fruit.Length)]);
-            Rigidbody temp = go.GetComponent<Rigidbody>();
-
-            if(temp.tag == "Bomb") {
-                temp.velocity = new Vector3(0f, 7f, 7f);
-                temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
-            } else {
-                temp.velocity = new Vector3(0f, 9f, 11f);
-                temp.angularVelocity = new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
-            }
-            temp.useGravity = true;
-
-            Vector3 pos = transform.position;
-            pos.x += Random.Range(-1f, 1f);
-            go.transform.position = pos;
-
-            yield return new WaitForSeconds(1f);    
-        }
-    }*/
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 [RequireComponent (typeof(Rigidbody))]
 public class FruitCutter : MonoBehaviour
@@ -19,15 +20,13 @@ public class FruitCutter : MonoBehaviour
     
     void Start()
     {
-        //gameManager = gameManagerObj.GetComponent<GameManager>();
+        gameManager = gameManagerObj.GetComponent<GameManager>();
         xrLeft = leftHand.GetComponent<ActionBasedController>();
         xrRight = rightHand.GetComponent<ActionBasedController>();
-        Debug.Log("Get controller");
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision");
         GameObject victim = collision.collider.gameObject;
 
         if(victim.name != "left side" || victim.name != "right side") {
@@ -58,7 +57,13 @@ public class FruitCutter : MonoBehaviour
                         // Lose Life
                         gameManager.Bombed();
                         // Destroy bomb after 0.3 seconds
-                        Destroy(victim, 0.3f);
+                        Destroy(victim, 0.1f);
+                        break;
+                    case "Restart":
+                        StartCoroutine(RestartGame());
+                        break;
+                    case "Exit":
+                        StartCoroutine(ExitGame());
                         break;
                 }
 
@@ -90,5 +95,19 @@ public class FruitCutter : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator RestartGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+        // load new scene once watermelon is sliced
+        SceneManager.LoadScene("MainScene");
+    }
+
+    IEnumerator ExitGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+        // load new scene once watermelon is sliced
+        SceneManager.LoadScene("MainMenu");
     }
 }

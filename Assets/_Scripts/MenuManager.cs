@@ -19,7 +19,6 @@ public class MenuManager : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("Collision");
         GameObject victim = col.collider.gameObject;
 
         if(victim.name != "left side" || victim.name != "right side") {
@@ -29,17 +28,10 @@ public class MenuManager : MonoBehaviour
                 // If it wasn't hit before, now it is
                 fruit.GotHit(true);
                 xrRight.SendHapticImpulse(0.5f, 0.5f);
-                switch(victim.tag)
+
+                if(victim.tag == "Start")
                 {
-                    case "Start":
-                        StartCoroutine(StartGame());
-                        break;
-                    case "Restart":
-                        StartCoroutine(StartGame());
-                        break;
-                    case "Exit":
-                        StartCoroutine(ExitGame());
-                        break;
+                    StartCoroutine(StartGame());
                 }
             }
         } else {
@@ -63,12 +55,5 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         // load new scene once watermelon is sliced
         SceneManager.LoadScene("MainScene");
-    }
-
-    IEnumerator ExitGame()
-    {
-        yield return new WaitForSeconds(0.5f);
-        // load new scene once watermelon is sliced
-        SceneManager.LoadScene("MainMenu");
     }
 }
